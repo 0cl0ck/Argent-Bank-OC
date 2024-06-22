@@ -33,11 +33,8 @@ export const fetchUserProfile = createAsyncThunk(
         }
       );
       const data = await response.json();
-      console.log(response);
       if (response.ok) {
-        console.log(response);
-
-        return data.body; // Assure-toi que tu extrais la partie correcte du corps de la réponse
+        return data.body;
       } else {
         throw new Error(data.message || "Failed to fetch user profile");
       }
@@ -59,7 +56,7 @@ export const updateUserProfileApi = (userData, token) => {
   }).then(async (response) => {
     const data = await response.json();
     if (response.ok) {
-      return data; // Assure-toi que c'est ce format que tu attends partout où updateUserProfileApi est appelé
+      return data;
     } else {
       throw new Error(data.message || "Failed to update profile");
     }

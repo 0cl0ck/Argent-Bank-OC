@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login, signOut } from "../redux/authSlice.js";
+import { login } from "../redux/authSlice.js";
 import { useNavigate } from "react-router-dom";
 
 function SignIn() {
@@ -9,8 +9,6 @@ function SignIn() {
   const { isAuthenticated, status, error } = useSelector((state) => state.auth);
 
   React.useEffect(() => {
-    // console.log("Auth status: ", isAuthenticated);
-    // console.log("Error: ", error);
     if (isAuthenticated) {
       navigate("/dashboard");
     }

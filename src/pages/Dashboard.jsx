@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserProfile } from "../apiServices";
 import EditNameModal from "./../components/EditNameModal.jsx";
@@ -10,7 +10,6 @@ function Dashboard() {
 
   useEffect(() => {
     if (token && !user) {
-      console.log("Dispatching fetchUserProfile");
       dispatch(fetchUserProfile(token));
     }
   }, [dispatch, token, user]);

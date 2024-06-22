@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 
 function Main({ children, className }) {
@@ -7,6 +6,7 @@ function Main({ children, className }) {
 
 Main.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string, // Add className prop validation
 };
 Main.defaultProps = {
   className: "",

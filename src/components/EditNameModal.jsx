@@ -13,7 +13,7 @@ function EditNameModal({ user, token, onClose }) {
       .unwrap()
       .then((updatedUserData) => {
         console.log("Profile updated", updatedUserData);
-        onClose(); // Ferme le modal après mise à jour
+        onClose();
       })
       .catch((error) => {
         console.error("Failed to update profile", error);
