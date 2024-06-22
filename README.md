@@ -21,7 +21,7 @@ node --version
 mongo --version
 ```
 
-### Backend Setup
+## Backend Setup
 
 To set up the backend server, follow these steps:
 
@@ -46,7 +46,7 @@ npm run populate-db
 
 Your backend server should now be running at http://localhost:3001, with two users populated in your MongoDB database.
 
-## Populated Database Data
+### Populated Database Data
 
 Once you run the `populate-db` script, you should have two users in your database:
 
@@ -64,7 +64,7 @@ Once you run the `populate-db` script, you should have two users in your databas
 - Email: `steve@rogers.com`,
 - Password: `password456`
 
-### Frontend Setup
+## Frontend Setup
 
 To set up the frontend application, follow these steps:
 
