@@ -25,7 +25,7 @@ mongo --version
 
 To set up the backend server, follow these steps:
 
-1. Fork the backend repository.
+1. Fork the backend repository (https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API).
 2. Clone the repository to your local machine.
 3. Open a terminal in the cloned project directory.
 4. Run the following commands:
@@ -45,6 +45,24 @@ npm run populate-db
 ```
 
 Your backend server should now be running at http://localhost:3001, with two users populated in your MongoDB database.
+
+## Populated Database Data
+
+Once you run the `populate-db` script, you should have two users in your database:
+
+### Tony Stark
+
+- First Name: `Tony`
+- Last Name: `Stark`
+- Email: `tony@stark.com`
+- Password: `password123`
+
+### Steve Rogers
+
+- First Name: `Steve`,
+- Last Name: `Rogers`,
+- Email: `steve@rogers.com`,
+- Password: `password456`
 
 ### Frontend Setup
 
