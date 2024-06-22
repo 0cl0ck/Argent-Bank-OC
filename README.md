@@ -25,7 +25,7 @@ mongo --version
 
 To set up the backend server, follow these steps:
 
-1. Fork the backend repository (https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API).
+1. Fork the backend repository ( https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API ).
 2. Clone the repository to your local machine.
 3. Open a terminal in the cloned project directory.
 4. Run the following commands:
