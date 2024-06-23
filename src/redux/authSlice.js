@@ -4,6 +4,15 @@ import { fetchUserProfile } from "../apiServices";
 import { updateUserProfileApi } from "../apiServices";
 
 // Thunk pour gérer la connexion
+/**
+ * Thunk asynchrone pour la connexion d'un utilisateur.
+ * Utilise `loginApi` pour tenter de connecter l'utilisateur avec les données fournies.
+ * En cas de succès, retourne les données de l'utilisateur.
+ * En cas d'échec, rejette la promesse avec un message d'erreur.
+ * @param {Object} userData - Contient l'email et le mot de passe de l'utilisateur.
+ * @param {function} rejectWithValue - Fonction pour retourner une valeur en cas de rejet.
+ * @returns {Promise<Object>} Les données de l'utilisateur en cas de succès.
+ */
 export const login = createAsyncThunk(
   "auth/login",
   async (userData, { rejectWithValue }) => {
@@ -26,6 +35,17 @@ export const login = createAsyncThunk(
   }
 );
 
+// Thunk pour mettre à jour le profil de l'utilisateur
+/**
+ * Thunk asynchrone pour mettre à jour le profil de l'utilisateur.
+ * Utilise `updateUserProfileApi` pour mettre à jour le profil avec les données fournies.
+ * En cas de succès, met à jour le profil de l'utilisateur dans l'état et retourne les nouvelles données.
+ * En cas d'échec, rejette la promesse avec un message d'erreur.
+ * @param {Object} params - Contient les données de l'utilisateur et le token d'authentification.
+ * @param {function} dispatch - Fonction dispatch de Redux pour mettre à jour l'état.
+ * @param {function} rejectWithValue - Fonction pour retourner une valeur en cas de rejet.
+ * @returns {Promise<Object>} Les nouvelles données de l'utilisateur en cas de succès.
+ */
 export const updateUserProfile = createAsyncThunk(
   "auth/updateUserProfile",
   async ({ userData, token }, { dispatch, rejectWithValue }) => {
@@ -44,6 +64,11 @@ export const updateUserProfile = createAsyncThunk(
   }
 );
 
+// Initialisation de l'état pour l'authentification
+/**
+ * État initial pour la gestion de l'authentification.
+ * Contient les informations sur l'utilisateur, le token, le statut d'authentification, le statut de la requête et une erreur potentielle.
+ */
 const initialState = {
   user: null,
   token: null,
@@ -52,6 +77,12 @@ const initialState = {
   error: null,
 };
 
+// Slice pour l'authentification
+/**
+ * Slice Redux pour la gestion de l'authentification.
+ * Contient les reducers pour la connexion, la déconnexion, et la mise à jour des données de l'utilisateur.
+ * Gère également les actions asynchrones pour la connexion et la mise à jour du profil de l'utilisateur.
+ */
 const authSlice = createSlice({
   name: "auth",
   initialState,

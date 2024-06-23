@@ -3,21 +3,37 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUserProfile } from "../apiServices";
 import EditNameModal from "./../components/EditNameModal.jsx";
 
+/**
+ * Composant Dashboard affichant les informations de l'utilisateur et les détails des comptes.
+ * Gère l'état pour l'édition du nom de l'utilisateur et récupère les données du profil utilisateur.
+ *
+ * @component
+ * @returns {JSX.Element} Le composant Dashboard rendu.
+ */
 function Dashboard() {
   const dispatch = useDispatch();
   const { user, token } = useSelector((state) => state.auth);
   const [isEditing, setIsEditing] = useState(false);
 
+  /**
+   * Hook useEffect pour récupérer le profil utilisateur lorsque le token est disponible et que les données utilisateur ne sont pas chargées.
+   */
   useEffect(() => {
     if (token && !user) {
       dispatch(fetchUserProfile(token));
     }
   }, [dispatch, token, user]);
 
+  /**
+   * Gère l'événement de clic pour ouvrir la modal d'édition du nom.
+   */
   const handleEditClick = () => {
     setIsEditing(true);
   };
 
+  /**
+   * Gère l'événement pour fermer la modal d'édition du nom.
+   */
   const handleCloseModal = () => {
     setIsEditing(false);
   };

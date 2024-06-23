@@ -9,13 +9,18 @@ import "./sass/index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-// Vérifier le token dans le localStorage
+// Vérifie le token dans le localStorage et initialise l'état d'authentification si le token est présent
 const token = localStorage.getItem("authToken");
 if (token) {
   store.dispatch(signIn({ token }));
   store.dispatch(fetchUserProfile(token));
 }
 
+/**
+ * Rend l'application React dans le DOM.
+ * Utilise le Provider de React Redux pour fournir le store à l'ensemble de l'application.
+ * Le Router gère les différentes routes de l'application.
+ */
 root.render(
   <React.StrictMode>
     <Provider store={store}>

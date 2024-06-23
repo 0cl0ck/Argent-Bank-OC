@@ -5,6 +5,10 @@ import SignIn from "../pages/SignIn.jsx";
 import Dashboard from "../pages/Dashboard.jsx";
 import ProtectedRoute from "../components/ProtectedRoute.jsx";
 
+/**
+ * Constante BrowserRouter définissant la configuration des routes de l'application
+ * en utilisant react-router-dom.
+ */
 const BrowserRouter = createBrowserRouter([
   {
     element: <Layout />,
@@ -32,6 +36,13 @@ const BrowserRouter = createBrowserRouter([
   },
 ]);
 
+/**
+ * Composant Router encapsulant le RouterProvider pour fournir les routes définies
+ * à l'ensemble de l'application.
+ *
+ * @component
+ * @returns {JSX.Element} Le composant Router rendu.
+ */
 export default function Router() {
   return <RouterProvider router={BrowserRouter} />;
 }

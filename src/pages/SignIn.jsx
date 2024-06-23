@@ -3,16 +3,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/authSlice.js";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Composant SignIn gérant l'authentification des utilisateurs.
+ * Utilise Redux pour gérer l'état de l'authentification et React Router pour la navigation.
+ *
+ * @component
+ * @returns {JSX.Element} Le composant SignIn rendu.
+ */
 function SignIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isAuthenticated, status, error } = useSelector((state) => state.auth);
 
+  /**
+   * Hook useEffect pour rediriger l'utilisateur vers le tableau de bord s'il est authentifié.
+   */
   React.useEffect(() => {
     if (isAuthenticated) {
       navigate("/dashboard");
     }
   }, [isAuthenticated, navigate, error]);
+
+  /**
+   * Gère la soumission du formulaire de connexion.
+   *
+   * @param {React.FormEvent<HTMLFormElement>} event - L'événement de soumission du formulaire.
+   */
   const handleSignIn = (event) => {
     event.preventDefault();
     const email = event.target.username.value;

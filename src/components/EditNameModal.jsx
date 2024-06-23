@@ -2,6 +2,18 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateUserProfile } from "./../redux/authSlice.js";
 import PropTypes from "prop-types";
+
+// Composant EditNameModal
+/**
+ * Composant pour modifier le prénom et le nom de l'utilisateur.
+ * Utilise useState pour gérer les états locaux des champs de prénom et de nom.
+ * Utilise useDispatch pour envoyer l'action de mise à jour du profil de l'utilisateur.
+ *
+ * @param {Object} props - Les propriétés passées au composant.
+ * @param {Object} props.user - L'objet utilisateur contenant les informations actuelles.
+ * @param {string} props.token - Le token d'authentification de l'utilisateur.
+ * @param {Function} props.onClose - Fonction à appeler pour fermer le modal.
+ */
 function EditNameModal({ user, token, onClose }) {
   const [firstName, setFirstName] = useState(user ? user.firstName : "");
   const [lastName, setLastName] = useState(user ? user.lastName : "");

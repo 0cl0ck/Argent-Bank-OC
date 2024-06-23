@@ -1,3 +1,8 @@
+// Composant Footer
+/**
+ * Composant fonctionnel Footer qui affiche le pied de page.
+ * Contient un texte de copyright.
+ */
 function Footer() {
   return (
     <footer className="footer">

@@ -2,6 +2,13 @@ import chatIcon from "../assets/img/icon-chat.png";
 import moneyIcon from "../assets/img/icon-money.png";
 import securityIcon from "../assets/img/icon-security.png";
 
+/**
+ * Composant HomePage affichant la page d'accueil avec des messages promotionnels
+ * et les fonctionnalités principales de la banque.
+ *
+ * @component
+ * @returns {JSX.Element} Le composant HomePage rendu.
+ */
 function HomePage() {
   return (
     <>
