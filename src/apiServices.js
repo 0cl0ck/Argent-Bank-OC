@@ -9,19 +9,29 @@ const API_BASE_URL = "http://localhost:3001/api/v1";
  * @returns {Promise<object>} La réponse de l'API en format JSON.
  * @throws {Error} Si la réponse du réseau n'est pas correcte.
  */
-export const loginApi = (email, password) => {
-  return fetch(`${API_BASE_URL}/user/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email, password }),
-  }).then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
+export const loginApi = async (email, password) => {
+  try {
+    const response = await fetch("http://localhost:3001/api/v1/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    if (response.ok) {
+      return response.json();
+    } else {
+      if (response.status === 400) {
+        throw new Error("The credentials are incorrect.");
+      } else {
+        throw new Error("An error occurred. Please try again later.");
+      }
     }
-    return response.json();
-  });
+  } catch (error) {
+    console.error("Login API error:", error);
+    throw error;
+  }
 };
 
 /**
